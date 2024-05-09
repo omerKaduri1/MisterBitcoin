@@ -6,8 +6,6 @@ export const contactService = {
     getEmptyContact
 }
 
-
-
 const contacts = [
     {
         "_id": "5a56640269f443a5d64b32ca",
@@ -89,7 +87,6 @@ const contacts = [
     },
     {
         "_id": "5a56640298ab77236845b82b",
-
         "name": "Glenna Santana",
         "email": "glennasantana@renovize.com",
         "phone": "+1 (860) 467-2376"
@@ -124,18 +121,18 @@ const contacts = [
         "email": "lillyconner@renovize.com",
         "phone": "+1 (842) 587-3812"
     }
-];
+]
 
 function sort(arr) {
     return arr.sort((a, b) => {
         if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
-            return -1;
+            return -1
         }
         if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
-            return 1;
+            return 1
         }
 
-        return 0;
+        return 0
     })
 }
 
@@ -205,8 +202,6 @@ function filter(term) {
             contact.email.toLocaleLowerCase().includes(term)
     })
 }
-
-
 
 function _makeId(length = 10) {
     var txt = ''
