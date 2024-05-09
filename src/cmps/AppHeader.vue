@@ -1,0 +1,60 @@
+<template>
+  <header class="app-header">
+    <RouterLink to="/">
+      <p>MisterBIT<span>Coin</span></p>
+    </RouterLink>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/contact">Contacts</RouterLink>
+    </nav>
+  </header>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
+.app-header {
+  height: 100px;
+  border-bottom: 1px solid #dfdbdb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & p {
+    margin: 1.5em;
+    font-size: 1.4em;
+    cursor: pointer;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    column-gap: 2em;
+    font-size: 1em;
+
+    @media (max-width: 600px) {
+      column-gap: 1em;
+    }
+
+    & a {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+
+      &.router-link-exact-active {
+        font-weight: 700;
+        font-size: 1.05em;
+      }
+    }
+  }
+
+  & span {
+    color: rgb(18, 122, 18);
+  }
+}
+</style>
