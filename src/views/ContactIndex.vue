@@ -1,6 +1,6 @@
 <template>
   <section class="contact-index"></section>
-  <ContactList :contacts="contacts" />
+  <ContactList @remove="removeContact" :contacts="contacts" />
 </template>
 
 <script>
@@ -14,6 +14,20 @@ export default {
   },
   async created() {
     this.contacts = await contactService.query();
+  },
+  methods: {
+    async removeContact(contactId) {
+      try {
+        await contactService.remove(contactId);
+
+        const idx = this.contacts.findIndex(
+          (contact) => contact._id === contactId
+        )
+        this.contacts.splice(idx, 1);
+      } catch (err) {
+        console.error(err);
+      }
+    },
   },
   components: {
     ContactList,

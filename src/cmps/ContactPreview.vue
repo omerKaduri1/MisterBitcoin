@@ -5,7 +5,7 @@
       <span routerLink="/contact/{{contact._id}}">{{ contact.name }}</span>
     </section>
     <section class="actions">
-      <button class="remove-btn">
+      <button @click="remove" class="remove-btn">
         <img src="../assets/img/delete.png" alt="" />
       </button>
       <button routerLink="/contact/edit/{{contact._id}}">
@@ -23,52 +23,56 @@ export default {
       required: true,
     },
   },
+  methods: {
+    remove() {
+      this.$emit("remove", this.contact._id);
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .contact-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7em;
+  background-color: rgba(187, 183, 183, 0.4);
+  border-radius: 20em;
+  padding: 0.8em;
+
+  &:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: .7em;
-    background-color: rgba(187, 183, 183, 0.4);
-    border-radius: 20em;
-    padding: .8em;
+    cursor: pointer;
+    gap: 5px;
 
-    &:hover {
-        background-color: #f0f0f0;
-        transition: background-color 0.3s ease;
+    span {
+      color: #1a1919;
+      font-size: 1.1em;
     }
+  }
 
-    .contact-info {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        gap: 5px;
+  .actions {
+    display: flex;
 
-        span {
-            color: #1a1919;
-            font-size: 1.1em;
-        }
+    button {
+      border: none;
+      background-color: transparent;
+
+      img {
+        height: 25px;
+      }
+
+      .edit-img {
+        height: 20px;
+      }
     }
-
-    .actions {
-        display: flex;
-
-        button {
-            border: none;
-            background-color: transparent;
-
-            img {
-                height: 25px;
-            }
-
-            .edit-img {
-                height: 20px;
-            }
-        }
-    }
-
+  }
 }
 </style>

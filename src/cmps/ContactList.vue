@@ -2,7 +2,7 @@
   <section>
     <ul class="contact-list">
       <li v-for="contact in contacts" :key="contact._id">
-        <ContactPreview :contact="contact" />
+        <ContactPreview :contact="contact" @remove="removeContact" />
       </li>
     </ul>
   </section>
@@ -17,6 +17,11 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  methods:{
+    removeContact(contactId){
+        this.$emit('remove', contactId)
+    }
   },
   components: {
     ContactPreview,
