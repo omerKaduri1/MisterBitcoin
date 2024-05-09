@@ -1,7 +1,6 @@
 'use strict'
 
 import { storageService } from '@/services/storage.service.js'
-import { utilService } from '@/services/util.service.js'
 
 export const dbService = {
     query,
@@ -38,7 +37,7 @@ async function remove(collectionName, id) {
 async function post(collectionName, item) {
     var collection = await query(collectionName)
 
-    item[ID_FIELD] = utilService.makeId()
+    item[ID_FIELD] = storageService.makeId()
     collection.push(item)
 
     storageService.save(collectionName, collection)
@@ -58,7 +57,7 @@ async function put(collectionName, item) {
 
 async function insert(collectionName, items) {
     var collection = await query(collectionName)
-    items.forEach(curr => (curr[ID_FIELD] = utilService.makeId()))
+    items.forEach(curr => (curr[ID_FIELD] = storageService.makeId()))
     collection.push(...items)
 
     storageService.save(collectionName, collection)

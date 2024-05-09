@@ -1,3 +1,7 @@
+'use strict'
+
+import { dbService } from "./db.service.js"
+
 export const contactService = {
     query,
     getById,
