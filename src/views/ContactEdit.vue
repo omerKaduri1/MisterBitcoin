@@ -32,9 +32,9 @@
 
       <section class="btns">
         <button class="btn">Save</button>
-        <button routerLink="/contact" class="btn-regular" type="button">
-          Back
-        </button>
+        <RouterLink to="/contact">
+          <button class="btn-regular" type="button">Back</button>
+        </RouterLink>
       </section>
     </form>
   </section>

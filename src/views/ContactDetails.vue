@@ -1,19 +1,19 @@
 <template>
   <h2 v-if="!contact">Loading...</h2>
   <section v-else class="contact-details">
+    <section class="actions">
+      <RouterLink to="/contact">
+        <button>
+          <img src="../assets/img/back.png" alt="" />
+        </button>
+      </RouterLink>
+      <RouterLink :to="`/contact/edit/${contact._id}`">
+        <button>
+          <img src="../assets/img/edit.png" alt="" />
+        </button>
+      </RouterLink>
+    </section>
     <section class="contact-data-container">
-      <section class="actions">
-        <RouterLink to="/contact">
-          <button>
-            <img src="../assets/img/back.png" alt="" />
-          </button>
-        </RouterLink>
-        <RouterLink :to="`/contact/edit/${contact._id}`">
-          <button>
-            <img src="../assets/img/edit.png" alt="" />
-          </button>
-        </RouterLink>
-      </section>
       <section class="contact-info">
         <img src="../assets/img/users.png" alt="contact" />
         <p>Name: {{ contact.name }}</p>
