@@ -1,9 +1,11 @@
 <template>
   <section class="contact-preview">
-    <section class="contact-info">
-      <img src="../assets/img/users.png" alt="" />
-      <span routerLink="/contact/{{contact._id}}">{{ contact.name }}</span>
-    </section>
+    <RouterLink :to="`/contact/${contact._id}`">
+      <section class="contact-info">
+        <img src="../assets/img/users.png" alt="" />
+        <span routerLink="/contact/{{contact._id}}">{{ contact.name }}</span>
+      </section>
+    </RouterLink>
     <section class="actions">
       <button @click="remove" class="remove-btn">
         <img src="../assets/img/delete.png" alt="" />
@@ -51,6 +53,7 @@ export default {
     align-items: center;
     cursor: pointer;
     gap: 5px;
+    width: 370px;
 
     span {
       color: #1a1919;
