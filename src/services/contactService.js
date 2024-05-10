@@ -150,8 +150,7 @@ async function query(filterBy = {}) {
     }
 
     if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        contacts = contacts.filter(contact => regex.test(contact.name) || regex.test(contact.email))
+        contacts = contacts.filter(contact => contact.name.toLowerCase().includes(filterBy.txt.toLowerCase()))
     }
 
     return contacts

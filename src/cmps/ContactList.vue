@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <ul class="contact-list">
+  <section class="contact-list">
+    <ul>
       <li v-for="contact in contacts" :key="contact._id">
         <ContactPreview :contact="contact" @remove="removeContact" />
       </li>
@@ -18,10 +18,10 @@ export default {
       required: true,
     },
   },
-  methods:{
-    removeContact(contactId){
-        this.$emit('remove', contactId)
-    }
+  methods: {
+    removeContact(contactId) {
+      this.$emit("remove", contactId);
+    },
   },
   components: {
     ContactPreview,
@@ -33,11 +33,16 @@ export default {
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 0.7em;
   margin-inline: 3em;
 
-  li {
-    list-style: none;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    padding: 0;
+    li {
+      list-style: none;
+    }
   }
 
   @media (max-width: 600px) {

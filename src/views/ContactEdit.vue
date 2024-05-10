@@ -78,6 +78,7 @@ export default {
   border-radius: 10px;
 
   @media (max-width: 600px) {
+    width: 100%;
     input {
       width: 200px;
     }

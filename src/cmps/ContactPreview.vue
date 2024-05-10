@@ -10,9 +10,11 @@
       <button @click="remove" class="remove-btn">
         <img src="../assets/img/delete.png" alt="" />
       </button>
-      <button routerLink="/contact/edit/{{contact._id}}">
-        <img class="edit-img" src="../assets/img/edit.png" alt="edit" />
-      </button>
+      <RouterLink :to="`contact/edit/${contact._id}`">
+        <button routerLink="/contact/edit/{{contact._id}}">
+          <img class="edit-img" src="../assets/img/edit.png" alt="edit" />
+        </button>
+      </RouterLink>
     </section>
   </section>
 </template>
@@ -53,7 +55,6 @@ export default {
     align-items: center;
     cursor: pointer;
     gap: 5px;
-    width: 370px;
 
     span {
       color: #1a1919;
