@@ -3,7 +3,8 @@ import { dbService } from "./db.service";
 export const userService = {
     getUser,
     signup,
-    logout
+    logout,
+    addMove
 }
 
 const ENTITY = 'user'
@@ -38,6 +39,29 @@ function logout() {
     });
 }
 
+function addMove(contact, amount) {
+    if (!amount) return Promise.resolve(null)
+    const newMove = _createMove(contact, amount)
+    const loggedInUser = Object.assign({}, getUser())
+    loggedInUser.balance -= amount;
+    loggedInUser.transactions.unshift(newMove)
+    loggedInUser.transactions = [...loggedInUser.transactions]
+
+    console.log('loggedInUser:', loggedInUser)
+
+    return dbService.put(ENTITY, loggedInUser).then(() => {
+        sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(loggedInUser);
+    })
+}
+
+function _createMove(contact, amount) {
+    return {
+        toId: contact._id,
+        to: contact.name,
+        at: Date.now(),
+        amount
+    }
+}
 
 function _createUser(name) {
     return {

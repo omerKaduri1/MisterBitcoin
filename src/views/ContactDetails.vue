@@ -21,12 +21,16 @@
         <p>Email: {{ contact.email }}</p>
       </section>
     </section>
+    <TransferFund :contact="contact" @transfer="onTransferCoins"/>
   </section>
 </template>
 
 <script>
 import { contactService } from "@/services/contactService";
+import { userService } from "@/services/user.service";
+import TransferFund from "@/cmps/TransferFund.vue";
 export default {
+  components: { TransferFund },
   data() {
     return {
       contact: null,
@@ -35,6 +39,11 @@ export default {
   async created() {
     const { id } = this.$route.params;
     this.contact = await contactService.getById(id);
+  },
+  methods: {
+    onTransferCoins(amount) {
+      userService.addMove(this.contact, amount);
+    },
   },
 };
 </script>
