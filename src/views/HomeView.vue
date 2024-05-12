@@ -25,7 +25,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     const loggedInUser = userService.getUser();
     if (!loggedInUser) {
-      next({ name: "SignupPage" }); // Redirect to SignupPage if no logged-in user
+      next({ name: "SignupPage" });
     } else {
       next();
     }

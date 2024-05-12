@@ -64,6 +64,7 @@ export default {
 
   .actions {
     display: flex;
+    align-items: center;
 
     button {
       border: none;

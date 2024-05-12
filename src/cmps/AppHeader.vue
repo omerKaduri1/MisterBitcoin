@@ -4,14 +4,32 @@
       <p>MisterBIT<span>Coin</span></p>
     </RouterLink>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/contact">Contacts</RouterLink>
+      <button v-if="loggedInUser" @click="onLogout">Logout</button>
     </nav>
   </header>
 </template>
 
 <script>
-export default {};
+import { userService } from "@/services/user.service";
+
+export default {
+  data() {
+    return {
+      loggedInUser: {},
+    };
+  },
+  async created() {
+    this.loggedInUser = await userService.getUser();
+    console.log("this.loggedInUser:", this.loggedInUser);
+  },
+  methods: {
+    onLogout() {
+      userService.logout();
+      this.$router.push("/signup");
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -49,6 +67,20 @@ export default {};
       &.router-link-exact-active {
         font-weight: 700;
         font-size: 1.05em;
+      }
+    }
+
+    button {
+      border: 1px solid rgb(214, 211, 211);
+      border-radius: 5px;
+      height: 2.5em;
+      padding: 5px;
+      background: transparent;
+      width: max-content;
+
+      &:hover {
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
       }
     }
   }
