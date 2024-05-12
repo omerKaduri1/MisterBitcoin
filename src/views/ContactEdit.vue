@@ -42,6 +42,7 @@
 
 <script>
 import { contactService } from "@/services/contactService";
+import { showSuccessMsg } from "@/services/event-bus.service";
 
 export default {
   data() {
@@ -52,6 +53,7 @@ export default {
   methods: {
     async save() {
       await contactService.save(this.contact);
+      showSuccessMsg("Contact saved successfully");
       this.$router.push("/contact");
     },
   },

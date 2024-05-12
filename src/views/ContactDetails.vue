@@ -37,6 +37,7 @@ import { contactService } from "@/services/contactService";
 import { userService } from "@/services/user.service";
 import TransferFund from "@/cmps/TransferFund.vue";
 import TransactionList from "@/cmps/TransactionList.vue";
+import { showSuccessMsg } from "@/services/event-bus.service";
 export default {
   data() {
     return {
@@ -60,6 +61,9 @@ export default {
     },
     onTransferCoins(amount) {
       userService.addMove(this.contact, amount);
+      showSuccessMsg(
+        `Successfully transferred $${amount} to ${this.contact.name}`
+      );
     },
   },
   components: { TransferFund, TransactionList },
