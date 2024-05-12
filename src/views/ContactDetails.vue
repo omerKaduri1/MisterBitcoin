@@ -21,7 +21,14 @@
         <p>Email: {{ contact.email }}</p>
       </section>
     </section>
-    <TransferFund :contact="contact" @transfer="onTransferCoins"/>
+    <TransferFund :contact="contact" @transfer="onTransferCoins" />
+    <TransactionList
+      :transactions="transactions"
+      :title="
+        'Your Transfers to ' +
+        contact.name.substring(0, contact.name.indexOf(' ') + 1)
+      "
+    />
   </section>
 </template>
 
@@ -29,22 +36,33 @@
 import { contactService } from "@/services/contactService";
 import { userService } from "@/services/user.service";
 import TransferFund from "@/cmps/TransferFund.vue";
+import TransactionList from "@/cmps/TransactionList.vue";
 export default {
-  components: { TransferFund },
   data() {
     return {
       contact: null,
+      transactions: [],
     };
   },
   async created() {
     const { id } = this.$route.params;
     this.contact = await contactService.getById(id);
+    this.loadContactTransactions();
   },
   methods: {
+    async loadContactTransactions() {
+      const user = userService.getUser();
+      this.transactions = [
+        ...user.transactions.filter(
+          (transaction) => transaction.toId === this.contact._id
+        ),
+      ];
+    },
     onTransferCoins(amount) {
       userService.addMove(this.contact, amount);
     },
   },
+  components: { TransferFund, TransactionList },
 };
 </script>
 

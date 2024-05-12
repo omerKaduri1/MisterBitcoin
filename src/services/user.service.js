@@ -39,16 +39,13 @@ function logout() {
     });
 }
 
-function addMove(contact, amount) {
-    if (!amount) return Promise.resolve(null)
+async function addMove(contact, amount) {
+    if (!amount) return null
     const newMove = _createMove(contact, amount)
     const loggedInUser = Object.assign({}, getUser())
     loggedInUser.balance -= amount;
     loggedInUser.transactions.unshift(newMove)
     loggedInUser.transactions = [...loggedInUser.transactions]
-
-    console.log('loggedInUser:', loggedInUser)
-
     return dbService.put(ENTITY, loggedInUser).then(() => {
         sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(loggedInUser);
     })

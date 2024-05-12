@@ -9,17 +9,24 @@
       <img src="../assets/img/bitcoin.png" alt="bitcoin" />
       <p>You have ₿ {{ BTC }}</p>
     </section>
+    <TransactionList
+      :title="'Your last 3 Transfers'"
+      :transactions="transactions"
+    />
   </section>
 </template>
 
 <script >
 import { userService } from "@/services/user.service.js";
 import { bitcoinService } from "@/services/bitcoin.service.js";
+import TransactionList from "@/cmps/TransactionList.vue";
 export default {
+  components: { TransactionList },
   data() {
     return {
       user: {},
       BTC: "",
+      transactions: [],
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -41,6 +48,8 @@ export default {
         .catch((err) => {
           console.error("Error fetching BTC rate:", err);
         });
+      const userTransactions = this.user.transactions || [];
+      this.transactions = userTransactions.slice(0, 3);
     }
   },
 };
