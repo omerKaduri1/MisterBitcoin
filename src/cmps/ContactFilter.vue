@@ -58,11 +58,6 @@ export default {
     &:focus {
       outline: none;
     }
-
-    @media (max-width: 600px) {
-      margin-inline: 1.5em;
-      width: 100%;
-    }
   }
 }
 </style>

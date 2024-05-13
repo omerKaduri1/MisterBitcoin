@@ -7,7 +7,7 @@
     </section>
     <section class="coins-info">
       <img src="../assets/img/bitcoin.png" alt="bitcoin" />
-      <p>You have ₿ {{ BTC }}</p>
+      <p>₿ {{ BTC }}</p>
     </section>
     <TransactionList
       :title="'Your last 3 Transfers'"
