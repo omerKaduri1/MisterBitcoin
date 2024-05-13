@@ -4,6 +4,7 @@ import ContactIndex from '../views/ContactIndex.vue'
 import ContactDetails from '../views/ContactDetails.vue'
 import ContactEdit from '../views/ContactEdit.vue'
 import SignupPage from '../views/SignupPage.vue'
+import StatisticPage from '../views/StatisticPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/contact/edit/:id?',
       name: 'contactEdit',
       component: ContactEdit
+    },
+    {
+      path: '/statistics',
+      name: 'statistics',
+      component: StatisticPage
     },
     {
       path: '/signup',

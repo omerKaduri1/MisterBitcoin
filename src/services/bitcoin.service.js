@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const bitcoinService = {
     getRate,
+    getMarketPriceHistory
 }
 
 async function getRate(coins) {
@@ -12,5 +13,14 @@ async function getRate(coins) {
     } catch (error) {
         console.log('Error fetching data:', error)
         throw error
+    }
+}
+
+async function getMarketPriceHistory() {
+    try {
+        const res = await axios.get(`https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`)
+        return res.data
+    } catch (err) {
+        console.log(err);
     }
 }
