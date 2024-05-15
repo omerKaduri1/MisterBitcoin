@@ -47,9 +47,9 @@
     <section class="contact-data-container">
       <section class="contact-info">
         <img src="../assets/img/users.png" alt="contact" />
-        <p>Name: {{ contact.name }}</p>
-        <p>Phone: {{ contact.phone }}</p>
-        <p>Email: {{ contact.email }}</p>
+        <p><span>Name:</span> {{ contact.name }}</p>
+        <p><span>Phone:</span> {{ contact.phone }}</p>
+        <p><span>Email:</span> {{ contact.email }}</p>
       </section>
     </section>
     <TransferFund :contact="contact" @transfer="onTransferCoins" />
@@ -118,10 +118,15 @@ export default {
 
     p {
       margin: 5px;
+      span {
+        font-size: 1.1em;
+        font-weight: 500;
+      }
     }
 
     img {
       height: 80px;
+      margin-block-end: 1.3em;
     }
   }
 

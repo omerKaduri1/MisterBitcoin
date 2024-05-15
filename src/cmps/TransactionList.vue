@@ -31,6 +31,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-block-end: 2em;
 
   ul {
     display: flex;

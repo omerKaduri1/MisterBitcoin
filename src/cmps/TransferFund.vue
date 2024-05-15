@@ -64,9 +64,10 @@ export default {
 
     input {
       border: 1px solid rgb(214, 211, 211);
-      border-radius: 5px;
+      border-radius: 6px;
       height: 2.5em;
-      padding: 8px;
+      padding: 15px;
+      margin-block-end: .5em;
 
       &:focus {
         outline: none;
