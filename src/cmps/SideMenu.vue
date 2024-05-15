@@ -1,11 +1,9 @@
 <template>
-  <header class="app-header">
-    <RouterLink to="/">
-      <p>MisterBIT<span>Coin</span></p>
-    </RouterLink>
-    <nav>
+  <section class="side-menu">
+    <nav class="side-nav">
       <RouterLink to="/contact">
-        <svg
+        Contacts
+        <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28px"
           height="28px"
@@ -28,10 +26,11 @@
             d="M5.39909 16.6808C6.49015 13.8286 9.47114 13 12 13C14.5289 13 17.5099 13.8286 18.6009 16.6808C18.9505 17.5948 18.6826 18.4756 18.1363 19.0778C17.6103 19.6576 16.8215 20 16 20H8C7.17849 20 6.38973 19.6576 5.86372 19.0778C5.31737 18.4756 5.04947 17.5948 5.39909 16.6808ZM12 15C9.72346 15 7.89905 15.7433 7.26709 17.3954C7.21826 17.523 7.25506 17.6349 7.34496 17.734C7.47492 17.8772 7.71694 18 8 18H16C16.2831 18 16.5251 17.8772 16.655 17.734C16.7449 17.6349 16.7817 17.523 16.7329 17.3954C16.101 15.7433 14.2765 15 12 15Z"
             fill="#0F0F0F"
           />
-        </svg>
+        </svg> -->
       </RouterLink>
-      <RouterLink to="/statistics"
-        ><svg
+      <RouterLink to="/statistics">
+        Statistics
+        <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           fill="#000000"
@@ -45,7 +44,8 @@
           <path
             d="M206.667,183.606H4c-2.209,0-4-1.791-4-4V31.061c0-2.209,1.791-4,4-4h202.667c2.209,0,4,1.791,4,4v148.545  C210.667,181.815,208.876,183.606,206.667,183.606z M11.612,175.606h191.055V35.061H8v132.843l78.114-78.113  c0.75-0.75,1.768-1.171,2.828-1.171s2.078,0.421,2.828,1.171l26.946,26.947l45.339-45.339c1.561-1.562,4.096-1.562,5.656,0  c1.563,1.563,1.563,4.095,0,5.657l-48.167,48.167c-0.75,0.75-1.768,1.171-2.828,1.171s-2.078-0.421-2.828-1.171L88.942,98.276  L11.612,175.606z M179.217,87.811c-2.209,0-4-1.791-4-4v-19.25h-19.25c-2.209,0-4-1.791-4-4s1.791-4,4-4h23.25c2.209,0,4,1.791,4,4  v23.25C183.217,86.02,181.426,87.811,179.217,87.811z"
           /></svg
-      ></RouterLink>
+      > -->
+      </RouterLink>
       <span v-if="loggedInUser" @click="onLogout" class="material-icons">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -77,19 +77,15 @@
         </svg>
       </span>
     </nav>
-  </header>
+  </section>
 </template>
 
 <script>
 import { userService } from "@/services/user.service";
-import SideMenu from "./SideMenu.vue";
-
 export default {
-  components: { SideMenu },
   data() {
     return {
       loggedInUser: {},
-      isSideMenuOpen: false,
     };
   },
   async created() {
@@ -100,51 +96,44 @@ export default {
       userService.logout();
       this.$router.push("/signup");
     },
-    openSideMenu() {
-      this.isSideMenuOpen = !this.isSideMenuOpen;
-    },
   },
 };
 </script>
 
-<style lang="scss">
-.app-header {
-  height: 100px;
-  border-bottom: 1px solid #dfdbdb;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0;
+<style lang='scss'>
+.side-menu {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  background-color: white;
+  padding: 24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 99;
 
-  & p {
-    margin: 1.5em;
-    font-size: 1.4em;
-    cursor: pointer;
-  }
-
-  nav {
+  .side-nav {
     display: flex;
+    // flex-direction: column;
     align-items: center;
-    margin-inline-end: 40px;
     column-gap: 2em;
     font-size: 1em;
-
-    & a {
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-
-      &.router-link-exact-active {
-        font-weight: 700;
-        font-size: 1.05em;
-      }
-    }
   }
 
-  & span {
-    color: rgb(18, 122, 18);
-    cursor: pointer;
-  }
+  //   .side-nav {
+  //     display: flex;
+  //     flex-direction: column;
+
+  //     & a {
+  //       cursor: pointer;
+  //       text-decoration: none;
+  //       color: inherit;
+
+  //       &.router-link-exact-active {
+  //         font-weight: 700;
+  //         font-size: 1.05em;
+  //       }
+  //     }
+  //   }
 }
 </style>

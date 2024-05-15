@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     formatTimestamp(timestamp) {
+      if (!timestamp) return ""; 
       const date = new Date(timestamp);
       const options = {
         year: "numeric",

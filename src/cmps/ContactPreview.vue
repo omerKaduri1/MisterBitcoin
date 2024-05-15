@@ -8,7 +8,6 @@
     </RouterLink>
     <section class="actions">
       <button @click="remove" class="remove-btn">
-        <!-- <img src="../assets/img/delete.png" alt="" /> -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -43,7 +42,6 @@
       </button>
       <RouterLink class="edit-btn" :to="`contact/edit/${contact._id}`">
         <button routerLink="/contact/edit/{{contact._id}}">
-          <!-- <img class="edit-img" src="../assets/img/edit.png" alt="edit" /> -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25px"
