@@ -156,50 +156,18 @@ async function query(filterBy = {}) {
     return contacts
 }
 
-// function getContacts(filterBy = null) {
-//     return new Promise((resolve, reject) => {
-//         var contactsToReturn = contacts;
-//         if (filterBy && filterBy.term) {
-//             contactsToReturn = filter(filterBy.term)
-//         }
-//         resolve(sort(contactsToReturn))
-//     })
-// }
-
 function getById(id) {
     return dbService.get(KEY, id)
 }
-
-// function getContactById(id) {
-//     return new Promise((resolve, reject) => {
-//         const contact = contacts.find(contact => contact._id === id)
-//         contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
-//     })
-// }
 
 function remove(id) {
     return dbService.remove(KEY, id)
 }
 
-// function deleteContact(id) {
-//     return new Promise((resolve, reject) => {
-//         const index = contacts.findIndex(contact => contact._id === id)
-//         if (index !== -1) {
-//             contacts.splice(index, 1)
-//         }
-
-//         resolve(contacts)
-//     })
-// }
-
 function save(contact) {
     if (contact._id) return dbService.put(KEY, contact)
     else return dbService.post(KEY, contact)
 }
-
-// function saveContact(contact) {
-//     return contact._id ? _updateContact(contact) : _addContact(contact)
-// }
 
 function _updateContact(contact) {
     return new Promise((resolve, reject) => {
@@ -218,7 +186,6 @@ function _addContact(contact) {
         resolve(contact)
     })
 }
-
 
 function getEmptyContact() {
     return {

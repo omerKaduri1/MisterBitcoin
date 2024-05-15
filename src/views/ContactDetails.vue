@@ -96,6 +96,7 @@ export default {
       showSuccessMsg(
         `Successfully transferred $${amount} to ${this.contact.name}`
       );
+      this.loadContactTransactions();
     },
   },
   components: { TransferFund, TransactionList },
