@@ -21,6 +21,7 @@ async function signup(name) {
             const user = users.find(_user => _user.name === name);
             if (user) {
                 sessionStorage.setItem(ENTITY_LOGGEDIN_USER, JSON.stringify(user))
+                return user
             } else {
                 const newUser = _createUser(name);
                 return dbService.post(ENTITY, newUser)
@@ -32,11 +33,8 @@ async function signup(name) {
         });
 }
 
-function logout() {
-    return new Promise((resolve, reject) => {
-        sessionStorage.setItem(ENTITY_LOGGEDIN_USER, JSON.stringify(null));
-        resolve(null);
-    });
+async function logout() {
+    sessionStorage.removeItem(ENTITY_LOGGEDIN_USER);
 }
 
 async function addMove(contact, amount) {

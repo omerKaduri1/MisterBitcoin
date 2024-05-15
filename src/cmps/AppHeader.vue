@@ -81,24 +81,33 @@
 </template>
 
 <script>
-import { userService } from "@/services/user.service";
 import SideMenu from "./SideMenu.vue";
+import { showErrorMsg } from "@/services/event-bus.service";
+import { mapActions } from "vuex";
 
 export default {
   components: { SideMenu },
-  data() {
-    return {
-      loggedInUser: {},
-      isSideMenuOpen: false,
-    };
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.getUser;
+    },
   },
   async created() {
-    this.loggedInUser = await userService.getUser();
+    try {
+      await this.$store.dispatch("loadUser");
+    } catch (err) {
+      console.log("err:", err);
+    }
   },
   methods: {
-    onLogout() {
-      userService.logout();
-      this.$router.push("/signup");
+    ...mapActions(["logout"]),
+    async onLogout() {
+      try {
+        await this.logout();
+        this.$router.push("/signup");
+      } catch (err) {
+        showErrorMsg("Had issues logging out");
+      }
     },
     openSideMenu() {
       this.isSideMenuOpen = !this.isSideMenuOpen;

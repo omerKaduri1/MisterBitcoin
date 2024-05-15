@@ -16,7 +16,7 @@
 
 <script>
 import { userService } from "@/services/user.service";
-import { showErrorMsg } from '@/services/event-bus.service';
+import { showErrorMsg } from "@/services/event-bus.service";
 export default {
   data() {
     return {
@@ -35,8 +35,10 @@ export default {
   },
   methods: {
     onTransfer() {
-      if (this.maxCoins < this.amount) return showErrorMsg('Please enter a valid amount')
+      if (this.maxCoins < this.amount)
+        return showErrorMsg("Please enter a valid amount");
       this.$emit("transfer", this.amount);
+      this.amount = "";
     },
   },
 };

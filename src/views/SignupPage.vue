@@ -17,7 +17,9 @@
 </template>
 
 <script>
-import { userService } from "@/services/user.service";
+import { mapActions } from "vuex";
+import { showErrorMsg } from "@/services/event-bus.service";
+
 export default {
   data() {
     return {
@@ -25,9 +27,15 @@ export default {
     };
   },
   methods: {
-    onSignup() {
-      userService.signup(this.userName);
-      this.$router.push("/");
+    ...mapActions(["signup"]),
+    async onSignup() {
+      try {
+        await this.signup(this.userName);
+        this.$router.push("/");
+      } catch (err) {
+        showErrorMsg("Something went wrong, please try again");
+      }
+      // userService.signup(this.userName);
     },
   },
 };
