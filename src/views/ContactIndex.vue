@@ -29,7 +29,6 @@ import ContactList from "@/cmps/ContactList.vue";
 import ContactFilter from "@/cmps/ContactFilter.vue";
 
 import { showSuccessMsg } from "@/services/event-bus.service";
-import { contactService } from "@/services/contactService";
 export default {
   computed: {
     ...mapGetters({
@@ -41,7 +40,7 @@ export default {
     async removeContact(contactId) {
       try {
         this.deleteContact(contactId);
-        showSuccessMsg("Contacts deleted:", contactId);
+        showSuccessMsg(`Contact deleted: ${contactId}`);
       } catch {
         showErrorMsg("Couldn't delete contact", err);
       }
