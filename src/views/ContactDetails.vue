@@ -91,8 +91,8 @@ export default {
         ),
       ];
     },
-    onTransferCoins(amount) {
-      userService.addMove(this.contact, amount);
+    async onTransferCoins(amount) {
+      await userService.addMove(this.contact, amount);
       showSuccessMsg(
         `Successfully transferred $${amount} to ${this.contact.name}`
       );

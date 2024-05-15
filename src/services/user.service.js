@@ -20,7 +20,7 @@ async function signup(name) {
         .then(users => {
             const user = users.find(_user => _user.name === name);
             if (user) {
-                return Promise.resolve(user);
+                sessionStorage.setItem(ENTITY_LOGGEDIN_USER, JSON.stringify(user))
             } else {
                 const newUser = _createUser(name);
                 return dbService.post(ENTITY, newUser)

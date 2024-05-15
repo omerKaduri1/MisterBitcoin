@@ -20,14 +20,14 @@
 import { userService } from "@/services/user.service";
 export default {
   data() {
-    return{
-        userName: ""
-    }
+    return {
+      userName: "",
+    };
   },
   methods: {
     onSignup() {
       userService.signup(this.userName);
-      this.$router.push('/')
+      this.$router.push("/");
     },
   },
 };
