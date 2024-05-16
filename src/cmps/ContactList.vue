@@ -33,7 +33,7 @@ export default {
 .contact-list {
   display: flex;
   flex-direction: column;
-  margin-inline: 3em;
+  margin-inline: 7.75em;
 
   ul {
     display: flex;

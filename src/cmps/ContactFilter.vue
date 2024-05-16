@@ -38,7 +38,7 @@ export default {
 <style lang="scss">
 .contact-filter {
   display: flex;
-  margin: 1.5em 3em;
+  margin: 1.5em 3em 1.5em 7.75em;
   align-items: center;
   position: relative;
   width: fit-content;
@@ -51,9 +51,9 @@ export default {
   input {
     border: 1px solid rgb(214, 211, 211);
     border-radius: 5px;
-    width: 100%;
     height: 2.5em;
     padding: 8px;
+    width: 250px;
 
     &:focus {
       outline: none;

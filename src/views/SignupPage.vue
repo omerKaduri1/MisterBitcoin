@@ -8,7 +8,7 @@
         type="text"
         name="userName"
         id="userName"
-        placeholder="enter username"
+        placeholder="Enter User Name"
         required
       />
       <button type="submit">Sign up</button>

@@ -54,6 +54,7 @@ export default {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px 70px;
+  width: max-content;
 
   &:hover {
     background-color: #f0f0f0;

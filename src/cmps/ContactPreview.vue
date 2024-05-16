@@ -87,7 +87,7 @@ export default {
   gap: 0.7em;
   background-color: rgba(187, 183, 183, 0.4);
   border-radius: 20em;
-  padding: 0.8em;
+  padding: 0.8em 2em;
 
   &:hover {
     background-color: #f0f0f0;

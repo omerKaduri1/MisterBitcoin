@@ -122,6 +122,7 @@ export default {
   border-bottom: 1px solid #dfdbdb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0;
+  // padding-inline: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,13 +131,14 @@ export default {
     margin: 1.5em;
     font-size: 1.4em;
     cursor: pointer;
+    margin-inline-start: 6.25em;
   }
 
   nav {
     display: flex;
     align-items: center;
-    margin-inline-end: 40px;
-    column-gap: 2em;
+    margin-inline-end: 7.75em;
+    column-gap: 3em;
     font-size: 1em;
 
     & a {

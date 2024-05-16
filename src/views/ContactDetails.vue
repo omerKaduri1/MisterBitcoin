@@ -105,7 +105,7 @@ export default {
 
 <style lang="scss">
 .contact-details {
-  margin-inline: 1.5em;
+  margin: 0 7.75em;
   margin-block-start: 1em;
   display: flex;
   flex-direction: column;
@@ -139,6 +139,8 @@ export default {
     button {
       border: none;
       background-color: transparent;
+      padding: 0;
+      margin-left: 1.5em;
 
       img {
         height: 25px;
