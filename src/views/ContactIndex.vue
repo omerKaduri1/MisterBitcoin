@@ -74,7 +74,7 @@ export default {
     @media (max-width: 600px) {
       .add-btn {
         padding-inline-start: 5px;
-        margin-inline: 1em;
+        margin-inline-end: 1em;
       }
     }
   }

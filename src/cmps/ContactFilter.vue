@@ -42,6 +42,9 @@ export default {
   align-items: center;
   position: relative;
   width: fit-content;
+  @media (max-width:600px) {
+    margin-inline-start: 1.5em;
+  }
 
   svg {
     position: absolute;

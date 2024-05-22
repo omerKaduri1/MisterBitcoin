@@ -111,6 +111,10 @@ export default {
   flex-direction: column;
   align-items: center;
 
+  @media (max-width: 600px) {
+    margin-inline: 1.5em;
+  }
+
   .contact-info {
     display: flex;
     flex-direction: column;
