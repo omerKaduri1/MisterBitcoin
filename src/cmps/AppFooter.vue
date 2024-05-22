@@ -3,7 +3,10 @@
     <RouterLink to="/">
       <p>MisterBIT<span>Coin</span></p>
     </RouterLink>
-    <small>© Created by Omer Kaduri | misterBIT 2024</small>
+    <section class="rights-container">
+      <small>© Created by Omer Kaduri </small>
+      <small>misterBIT 2024</small>
+    </section>
   </footer>
 </template>
 
@@ -20,16 +23,29 @@ export default {};
   justify-content: space-between;
   align-items: center;
 
-  small {
-    margin-inline-end: 40px;
-    font-weight: 300;
-    font-size: .9em;
+  .rights-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    small {
+      margin-inline-end: 124px;
+      font-weight: 300;
+      font-size: 0.9em;
+      @media (max-width: 600px) {
+        margin-inline-end: 40px;
+        font-size: 0.85em;
+      }
+    }
   }
 
   & p {
-    margin: 1.5em;
+    margin-inline-start: 140px;
+
     font-size: 1.1em;
     cursor: pointer;
+    @media (max-width: 600px) {
+      margin: 1.5em;
+    }
   }
 
   & span {

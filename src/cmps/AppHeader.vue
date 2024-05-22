@@ -122,7 +122,6 @@ export default {
   border-bottom: 1px solid #dfdbdb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0;
-  // padding-inline: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -132,6 +131,9 @@ export default {
     font-size: 1.4em;
     cursor: pointer;
     margin-inline-start: 6.25em;
+    @media (max-width: 600px) {
+      margin: 1.5em;
+    }
   }
 
   nav {
@@ -140,6 +142,10 @@ export default {
     margin-inline-end: 7.75em;
     column-gap: 3em;
     font-size: 1em;
+    @media (max-width: 600px) {
+      column-gap: 1.5em;
+      margin-inline-end: 40px;
+    }
 
     & a {
       cursor: pointer;
